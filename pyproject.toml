@@ -1,0 +1,48 @@
+[project]
+name = "pimp-my-python-env"
+version = "0.1.0"
+description = "pimped python environment"
+readme = "README.md"
+requires-python = ">=3.12"
+
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "ruff>=0.15.5",
+    "ty>=0.0.21",
+]
+
+[tool.ruff]
+line-length = 100
+# Always generate Python 3.7-compatible code.
+target-version = "py312"
+
+[tool.ruff.lint]
+# Welche Regeln sollen geprüft werden?
+# https://docs.astral.sh/ruff/rules/
+extend-select = [
+    "E",    # pycodestyle, error
+    "W",    # pycodestyle, warning
+    "F",    # Pyflakes
+    "UP",   # pyupgrade
+    "B",    # flake8-bugbear
+    "SIM",  # flake8-simplify
+    "B",    # flake8-builtins
+    "I",    # isort
+    "C90",  # McCabe complexity 
+    "N",    # pep8-naming
+]
+
+[tool.ruff.lint.per-file-ignores]
+# Erlaube ungenutzte Imports in __init__.py Dateien
+"__init__.py" = ["F401"]
+
+[tool.ruff.lint.mccabe]
+# Maximale Komplexität: Verhindert "Spaghetti-Code" Monster-Funktionen
+max-complexity = 5
+
+[tool.ruff.format]
+quote-style = "single"
+indent-style = "space"
+docstring-code-format = true

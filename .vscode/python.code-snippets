@@ -1,0 +1,47 @@
+{
+    // Place your snippets for python here. Each snippet is defined under a snippet name and has a prefix, body and 
+    // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+    // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+    // same ids are connected.
+    "Python File Template": {
+        "prefix": "py-template",
+        "body": [
+            "",
+            "",
+            "def main():",
+            "    pass$1",
+            "",
+            "",
+            "if __name__ == \"__main__\":",
+            "    main()",
+            "",
+        ],
+        "description": "Insert Basic Python File Template"
+    },
+    "Python File Template with logging": {
+        "prefix": "py-log-template",
+        "body": [
+            "import logging",
+            "",
+            "logger = logging.getLogger(__name__)",
+            "",
+            "",
+            "def main():",
+            "    pass$1",
+            "",
+            "",
+            "if __name__ == \"__main__\":",
+            "    logger.setLevel(logging.INFO)",
+            "    formatter = logging.Formatter(",
+            "       fmt=\"%(asctime)s | %(levelname)-8s | %(message)s\",",
+            "       datefmt=\"%Y-%m-%d %H:%M:%S\"",
+            "    )",
+            "    console_handler = logging.StreamHandler()",
+            "    console_handler.setFormatter(formatter)",
+            "    logger.addHandler(console_handler)",
+            "    main()",
+            "",
+        ],
+        "description": "Insert Python File Template with logging setup"
+    }
+}
