@@ -29,6 +29,7 @@ extend-select = [
     "B",    # flake8-bugbear
     "SIM",  # flake8-simplify
     "A",    # flake8-builtins
+    "LOG",  # flake8-logging
     "I",    # isort
     "C90",  # McCabe complexity 
     "N",    # pep8-naming
