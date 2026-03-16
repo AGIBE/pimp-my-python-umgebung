@@ -42,3 +42,6 @@ extend-select = [
 [tool.ruff.lint.mccabe]
 # Maximale Komplexität: Verhindert "Spaghetti-Code" Monster-Funktionen
 max-complexity = 5
+
+[tool.ty.rules]
+all = "warn"
