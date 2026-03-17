@@ -36,6 +36,30 @@ rem Verwendung von pip wie gewohnt
 uv pip install requirements.txt
 ```
 
+#### Nutzung mit QGIS (Bestehende Python Installation)
+
+Ergänzung von OSGeo / QGIS binaries in [settings.json](.vscode\settings.json)
+```json
+"terminal.integrated.env.windows": {
+    "PATH": "${env:PATH};C:\\OSGeo4W\\bin"
+}
+```
+
+Erstellen der Umgebung basierrend auf der QGIS-Python Installation
+
+```cmd
+rem OSGEO_ROOT muss auf das Verzeichnis der QGIS Installation angepasst werden
+SET OSGEO_ROOT=C:\OSGeo4W
+SET OSGEO_PYTHON=%OSGEO_ROOT%\apps\Python312\python.exe
+
+uv venv --system-site-packages --python %OSGEO_PYTHON%
+
+rem Fügt die QGIS-LTR-Verzeichnisse zur virtuellen Umgebung hinzu
+echo %OSGEO_ROOT%\apps\qgis-ltr\python > .venv\qgis-ltr.pth
+echo %OSGEO_ROOT%\apps\qgis-ltr\python\plugins >> .venv\qgis-ltr.pth
+```
+
+
 ## Formatter - [ruff](https://docs.astral.sh/ruff/)
 
 - Installation mit `uv add --dev ruff` plus Visual Studio Code Extension [charliermarsh.ruff](https://marketplace.visualstudio.com/items?itemName=charliermarsh.ruff)
